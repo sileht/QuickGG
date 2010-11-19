@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World!</string>
-    <string name="app_name">Seeks</string>
+    <string name="app_name">QuickGG</string>
+    <string name="search_label">QuickGG</string>
+    <string name="search_hint">What do you looking for ?</string>
+    <string name="search_desc">Show result instead of suggestion</string>
 </resources>
