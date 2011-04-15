@@ -7,7 +7,7 @@
 	android:includeInGlobalSearch="true"
 	android:queryAfterZeroResults="true"
 	android:searchSuggestAuthority="net.sileht.quickgg.SuggestionProvider"
-	android:searchSuggestIntentAction="android.intent.action.VIEW"
+	android:searchSuggestIntentAction="android.intent.action.SEARCH"
 	android:searchSuggestIntentData="content://net.sileht.quickgg.SuggestionProvider/query"
 	android:searchSuggestThreshold="1">
  </searchable>

@@ -86,7 +86,7 @@ public class SuggestionProvider extends ContentProvider {
 	public Cursor getCursorForQuery(String query) throws MalformedURLException,
 			IOException {
 
-		String queryurl = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="
+		String queryurl = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=8&q="
 				+ URLEncoder.encode(query);
 
 		Log.v(TAG, "Query:" + queryurl);
@@ -126,6 +126,7 @@ public class SuggestionProvider extends ContentProvider {
 
 		JSONArray snippets;
 		JSONObject object;
+		Log.v(TAG, "JSON: " + json);
 
 		try {
 			object = (JSONObject) new JSONTokener(json).nextValue();
@@ -138,13 +139,13 @@ public class SuggestionProvider extends ContentProvider {
 
 		Log.v(TAG, "Snippets found: " + snippets.length());
 
-		MatrixCursor matrix = new MatrixCursor(new String[] { BaseColumns._ID,
-				KEY_TITLE, KEY_DESCRIPTION, KEY_QUERY });
-
 		String title;
 		String content;
 		String url;
 		JSONObject snippet;
+
+		MatrixCursor matrix = new MatrixCursor(new String[] { BaseColumns._ID,
+				KEY_TITLE, KEY_DESCRIPTION, KEY_QUERY });
 
 		for (int i = 0; i < snippets.length(); i++) {
 			try {
@@ -161,7 +162,6 @@ public class SuggestionProvider extends ContentProvider {
 		}
 
 		return matrix;
-
 	}
 
 	@Override
